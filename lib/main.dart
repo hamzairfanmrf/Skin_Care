@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:skin_care/check_api.dart';
+import 'Get_Products.dart';
 import 'get_feature_products.dart';
 import 'infinite_scroll.dart';
 
@@ -37,7 +38,7 @@ void main() {
 
     debugShowCheckedModeBanner: false,
 
-home:MyHomePage(
+home: MyHomePage(
 
 ),
   ),
