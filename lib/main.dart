@@ -37,7 +37,7 @@ void main() {
 
     debugShowCheckedModeBanner: false,
 
-home:MyHomePage(
+home:GetFeatureProduct(
 
 ),
   ),
