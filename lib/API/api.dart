@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:skin_care/Feature_products.dart';
-import 'package:skin_care/Products.dart';
-import 'package:skin_care/categories.dart';
+import 'package:skin_care/Model/Feature_products.dart';
+import 'package:skin_care/Model/Products.dart';
+import 'package:skin_care/Model/categories.dart';
 import 'package:skin_care/main.dart';
-import 'Feature_products.dart';
+import '../Model/Feature_products.dart';
 
 
 import 'package:http/http.dart' as http;

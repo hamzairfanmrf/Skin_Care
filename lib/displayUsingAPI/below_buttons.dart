@@ -3,17 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/services.dart';
-import 'package:skin_care/Check_List.dart';
-import 'package:skin_care/api.dart';
-import 'package:skin_care/categories.dart';
-import 'package:skin_care/check_list_only.dart';
-import 'package:skin_care/image_slider.dart';
-import 'package:skin_care/size_config.dart';
+
+import 'package:skin_care/API/api.dart';
+import 'package:skin_care/Model/categories.dart';
+
+
+import 'package:skin_care/sizeConfig/size_config.dart';
 import 'package:skin_care/splash_screen.dart';
-import 'just_check.dart';
+import '../Home.dart';
 import 'dart:async';
-import 'splash_screen.dart';
-import 'blank.dart';
+import '../splash_screen.dart';
+
 
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
@@ -22,8 +22,8 @@ import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'Crouser.dart';
-import 'Another_navigation.dart';
+import '../Slider/Crouser.dart';
+import '../Navigation_bar/Another_navigation.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -107,12 +107,12 @@ return splash;
 
      }
        if(index==1){
-        var blank=new MyApp();
+        var blank=new MyHomePage();
         return blank;
 
      }
        if(index==2){
-         var blank=CheckList();
+         var blank=AnotherNav();
          return blank;
        }
        if(index==3){

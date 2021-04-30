@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:skin_care/Check_List.dart';
-import 'package:skin_care/Crouser.dart';
-import 'package:skin_care/below_buttons.dart';
-import 'package:skin_care/just_check.dart';
+
+import 'package:skin_care/Slider/Crouser.dart';
+import 'package:skin_care/displayUsingAPI/Display_cate.dart';
+import 'package:skin_care/displayUsingAPI/below_buttons.dart';
+import 'package:skin_care/Home.dart';
 
 
 class AnotherNav extends StatefulWidget {
@@ -67,7 +68,7 @@ class _AnotherNavState extends State<AnotherNav> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) =>
-                            CheckList())
+                           CheckImage())
 
                         );
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:skin_care/Products.dart';
-import 'api.dart';
+import 'package:skin_care/Model/Products.dart';
+import '../API/api.dart';
 
 String aaa;
 class GetProducts extends StatefulWidget {
@@ -95,7 +95,7 @@ class _GetProductsState extends State<GetProducts> {
                           Text(
                             '${p[index].name}',
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 10,
                                 fontFamily: 'Source Sans Pro',
                                 fontWeight: FontWeight.bold
                             ),
@@ -111,6 +111,8 @@ class _GetProductsState extends State<GetProducts> {
                                 'Add to cart',
                                 style: TextStyle(
                                   color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Source Sans Pro'
                                 ),
                               ),
                             ),

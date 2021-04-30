@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:skin_care/api.dart';
-import 'package:skin_care/home_page.dart';
+import 'package:skin_care/API/api.dart';
+
 import 'package:skin_care/main.dart';
-import 'home_page.dart';
-import 'just_check.dart';
-import 'below_buttons.dart';
+
+import 'Home.dart';
+import 'displayUsingAPI/below_buttons.dart';
 
 
 class SplashScreen extends StatefulWidget {

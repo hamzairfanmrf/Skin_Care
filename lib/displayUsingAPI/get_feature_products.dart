@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:floating_ribbon/floating_ribbon.dart';
 import 'package:flutter/material.dart';
 import 'package:skeleton_text/skeleton_text.dart';
-import 'package:skin_care/Feature_products.dart';
-import 'package:skin_care/api.dart';
+import 'package:skin_care/Model/Feature_products.dart';
+import 'package:skin_care/API/api.dart';
 import 'package:ribbon/ribbon.dart';
+import '../Products_all/check_products.dart';
 
 
 class GetFeatureProduct extends StatefulWidget {
@@ -27,9 +30,8 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
     print("index after passing $index");
     int a=int.parse(feature[index].offer);
     if(a==0){
-
-
-      return InkWell(
+      print(jsonEncode(feature[index]));
+      return GestureDetector(
         child: Ribbon(
           nearLength: 40,
           farLength: 70,
@@ -85,13 +87,13 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                     ),
 
                     SizedBox(
-                      height: 10,
+                      height: 2,
                     ),
 
                     Text(
                       '${feature[index].c_name}',
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 10,
                           fontFamily: 'Source Sans Pro',
                           fontWeight: FontWeight.bold
                       ),
@@ -136,12 +138,10 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
         ),
       );
 
-
     }
     else {
-      print("index after entering else $index");
-
-      InkWell(
+      print(jsonEncode(feature[index]));
+      return GestureDetector(
         child: Container(
           height: 400,
 
@@ -188,13 +188,13 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                     ),
 
                     SizedBox(
-                      height: 10,
+                      height: 2,
                     ),
 
                     Text(
                       '${feature[index].c_name}',
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 10,
                           fontFamily: 'Source Sans Pro',
                           fontWeight: FontWeight.bold
                       ),
@@ -264,27 +264,26 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
 
 
 
-        body:GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 300,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 20,
+        body:SingleChildScrollView(
+          scrollDirection: Axis.vertical,
 
-        ),
-            itemCount: feature.length,
+          child: SizedBox(
+            height: 300,
+            child: GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 300,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 20,
 
-            itemBuilder: (context, index)
+            ),
+                itemCount: feature.length,
+                shrinkWrap: true,
+                //scrollDirection: Axis.vertical,
 
-            {
-
-            return choose(index);
-
-
-
-
-
-
-
+                itemBuilder: (BuildContext context, int itemBuilderIndex) {
+                return choose(itemBuilderIndex);
             }
+            ),
+          ),
         ),
   );
 

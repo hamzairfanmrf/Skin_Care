@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:skin_care/check_api.dart';
-import 'api.dart';
+
+import '../API/api.dart';
 
 class Categories {
   String c_id;
