@@ -71,140 +71,145 @@ class _just_checkState extends State<just_check> {
     SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Color(0xFFFBFBFB),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-            children: [
+      body: SizedBox(
+        height: 2000,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+              children: [
 
-              SizedBox(height: getProportionateScreenWidth(10),
-              ),
-              SafeArea(
-                child: Container(
+                SizedBox(height: getProportionateScreenWidth(10),
+                ),
+                SafeArea(
+                  child: Container(
 
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(width: SizeConfig.screenWidth * 0.6,
-                          margin: EdgeInsets.only(top: 5),
-                          //height: 50,
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(width: SizeConfig.screenWidth * 0.6,
+                            margin: EdgeInsets.only(top: 5),
+                            //height: 50,
 
-                          decoration: BoxDecoration(
-                              color: Color(0xFFBABABA).withOpacity(0.2),
-                              borderRadius: BorderRadius.circular(15)
+                            decoration: BoxDecoration(
+                                color: Color(0xFFBABABA).withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(15)
+                            ),
+                            child: TextField(
+                              onChanged: (value){
+
+                              },
+
+                              decoration: InputDecoration(
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                hintText: 'Search product',
+
+                                prefixIcon:Icon( Icons.search
+                                ),
+                                contentPadding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20),vertical: getProportionateScreenWidth(9)),
+
+
+
+                              ),
+                              textAlign: TextAlign.left,
+                              textAlignVertical: TextAlignVertical.center,
+                            ),
                           ),
-                          child: TextField(
-                            onChanged: (value){
+                          IconButtonwithCounter(
+                            svgsrc: Icons.shopping_cart,
+
+                            press: (){
 
                             },
-
-                            decoration: InputDecoration(
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              hintText: 'Search product',
-
-                              prefixIcon:Icon( Icons.search
-                              ),
-                              contentPadding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20),vertical: getProportionateScreenWidth(9)),
-
-
-
-                            ),
-                            textAlign: TextAlign.left,
-                            textAlignVertical: TextAlignVertical.center,
                           ),
-                        ),
-                        IconButtonwithCounter(
-                          svgsrc: Icons.shopping_cart,
+                          IconButtonwithCounter(
+                            svgsrc: Icons.add_alert_rounded,
+                            no_of_items: 3,
+                            press: (){
 
-                          press: (){
+                            },
+                          ),
 
-                          },
-                        ),
-                        IconButtonwithCounter(
-                          svgsrc: Icons.add_alert_rounded,
-                          no_of_items: 3,
-                          press: (){
-
-                          },
-                        ),
-
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                child:CarouselWithIndicatorDemo(),
-              ),
-
-              Container(
-
-                child: Column(
-                  children: [
-                    Row(
-
-
-                      children: [
-
-                        Padding(
-
-                          padding: const EdgeInsets.only(left: 80),
-                          child: GestureDetector(
-
-
-
-                            child:CircleAvatar(
-                              radius: 40,
-                              backgroundImage: AssetImage('images/departments.jpg'),
-                            ),
-                            onTap: (){
-                              setState(() {
-                                dept="true";
-                                feat="false";
-                              });
-
-                            },
-
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.only(left:70),
-                          child: GestureDetector(child:
-                       CircleAvatar(
-                           radius: 40,
-                           backgroundImage: AssetImage('images/featured_products.jpg'),
-                       ),
-                            onTap: (){
-                           setState(() {
-                             dept="false";
-                             feat="true";
-                           });
-                            },
-                          ),
-                        ),
-
-                      ],
-                    ),
-                   Container(
-                      child: decide(),
-                    ),
-                  ],
+                SizedBox(
+                  height: 10,
                 ),
-              ),
+                Container(
+                  child:CarouselWithIndicatorDemo(),
+                ),
+
+                Container(
+
+                  child: Column(
+                    children: [
+                      Row(
+
+
+                        children: [
+
+                          Padding(
+
+                            padding: const EdgeInsets.only(left: 80),
+                            child: GestureDetector(
+
+
+
+                              child:CircleAvatar(
+                                radius: 40,
+                                backgroundImage: AssetImage('images/departments.jpg'),
+                              ),
+                              onTap: (){
+                                setState(() {
+                                  dept="true";
+                                  feat="false";
+                                });
+
+                              },
+
+                            ),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left:70),
+                            child: GestureDetector(child:
+                         CircleAvatar(
+                             radius: 40,
+                             backgroundImage: AssetImage('images/featured_products.jpg'),
+                         ),
+                              onTap: (){
+                             setState(() {
+                               dept="false";
+                               feat="true";
+                             });
+                              },
+                            ),
+                          ),
+
+                        ],
+                      ),
+                     SizedBox(height: 700,
+                       child: Container(
+                          child: decide(),
+                        ),
+                     ),
+                    ],
+                  ),
+                ),
 
 
 
 
-            ]
+              ]
+          ),
         ),
       ),
 

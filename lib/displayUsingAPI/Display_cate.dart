@@ -27,91 +27,97 @@ class _CheckImageState extends State<CheckImage> {
   Widget build(BuildContext context) {
     getProducts();
 
-    return GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 150,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: SizedBox(
+        height: 700,
+        child: GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 150,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
 
 
-        ),
-            itemCount: myCatgories.length,
-            shrinkWrap: true,
+            ),
+                itemCount: myCatgories.length,
+                shrinkWrap: true,
 
-            scrollDirection: Axis.vertical,
+                scrollDirection: Axis.vertical,
 
-            itemBuilder: (context, index)
+                itemBuilder: (context, index)
 
-        {
+            {
 
-          return GestureDetector(
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
+              return GestureDetector(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
 
-              ),
-
-
-
-              child:  Row(
+                  ),
 
 
-                children: [
 
-                  Expanded(child: Column(
+                  child:  Row(
+
+
                     children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.all(3),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    items.baseURLCategories + myCatgories[index].img),
-                                fit: BoxFit.cover,
+
+                      Expanded(child: Column(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.all(3),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                        items.baseURLCategories + myCatgories[index].img),
+                                    fit: BoxFit.cover,
+                                  ),
+
+                                ),
+                                height: double.infinity,
+
+
                               ),
 
+
+
+
                             ),
-                            height: double.infinity,
-
-
                           ),
+                          Text(
+                            '${myCatgories[index].c_name}'
+                          )
 
 
-
-
-                        ),
+                        ],
                       ),
-                      Text(
-                        '${myCatgories[index].c_name}'
-                      )
+                      ),
 
 
                     ],
                   ),
-                  ),
 
 
-                ],
-              ),
+                ),
+                onTap: (){
+                  var a=myCatgories[index].c_id;
+                  print(a);
+                  setState(() {
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => GetProducts(a)),
+                    );
+                  });
+                },
+              );
+
+            }
 
 
-            ),
-            onTap: (){
-              var a=myCatgories[index].c_id;
-              print(a);
-              setState(() {
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => GetProducts(a)),
-                );
-              });
-            },
-          );
-
-        }
-
-
-      );
+          ),
+      ),
+    );
   }
 }

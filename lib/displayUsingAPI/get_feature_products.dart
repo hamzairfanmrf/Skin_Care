@@ -246,21 +246,7 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
     getFeatureProducts();
 
     return Scaffold(
-        appBar: AppBar(
-          centerTitle:true,
-          backgroundColor: Color(0xFFF1F3F4),
-          title: Text(
-            'Feature Products',
-            textAlign: TextAlign.center,
 
-
-            style: TextStyle(
-              fontFamily: 'Source Sans Pro',
-              color: Color(0xFF7FAD39),
-              fontWeight: FontWeight.w600
-            ),
-          ),
-        ),
 
 
 
