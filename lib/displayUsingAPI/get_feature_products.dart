@@ -254,7 +254,7 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
           scrollDirection: Axis.vertical,
 
           child: SizedBox(
-            height: 700,
+            height: 400,
             child: GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 300,
               crossAxisSpacing: 10,

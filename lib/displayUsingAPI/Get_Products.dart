@@ -36,7 +36,7 @@ class _GetProductsState extends State<GetProducts> {
     getProducts();
     return  Scaffold(
       body: SizedBox(
-        height: 700,
+        height: 10000,
         child: GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 300,
           crossAxisSpacing: 10,

@@ -72,7 +72,7 @@ class _just_checkState extends State<just_check> {
     return Scaffold(
       backgroundColor: Color(0xFFFBFBFB),
       body: SizedBox(
-        height: 2000,
+        height: 200000,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -196,7 +196,7 @@ class _just_checkState extends State<just_check> {
 
                         ],
                       ),
-                     SizedBox(height: 700,
+                     SizedBox(height: 1000,
                        child: Container(
                           child: decide(),
                         ),
