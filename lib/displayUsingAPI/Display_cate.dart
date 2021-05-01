@@ -30,7 +30,7 @@ class _CheckImageState extends State<CheckImage> {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: SizedBox(
-        height: 200,
+        height: 220,
         child: GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 150,
               crossAxisSpacing: 10,

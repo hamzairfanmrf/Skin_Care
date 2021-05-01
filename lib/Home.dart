@@ -153,44 +153,48 @@ class _just_checkState extends State<just_check> {
 
                         children: [
 
-                          Padding(
+                          Expanded(
+                            child: Padding(
 
-                            padding: const EdgeInsets.only(left: 80),
-                            child: GestureDetector(
+                              padding: const EdgeInsets.all(8),
+                              child: GestureDetector(
 
 
 
-                              child:CircleAvatar(
-                                radius: 40,
-                                backgroundImage: AssetImage('images/departments.jpg'),
+                                child:CircleAvatar(
+                                  radius: 40,
+                                  backgroundImage: AssetImage('images/departments.jpg'),
+                                ),
+                                onTap: (){
+                                  setState(() {
+                                    dept="true";
+                                    feat="false";
+                                  });
+
+                                },
+
                               ),
-                              onTap: (){
-                                setState(() {
-                                  dept="true";
-                                  feat="false";
-                                });
-
-                              },
-
                             ),
                           ),
                           SizedBox(
                             width: 20,
                           ),
 
-                          Padding(
-                            padding: const EdgeInsets.only(left:70),
-                            child: GestureDetector(child:
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: GestureDetector(child:
                          CircleAvatar(
-                             radius: 40,
-                             backgroundImage: AssetImage('images/featured_products.jpg'),
+                               radius: 40,
+                               backgroundImage: AssetImage('images/featured_products.jpg'),
                          ),
-                              onTap: (){
-                             setState(() {
-                               dept="false";
-                               feat="true";
-                             });
-                              },
+                                onTap: (){
+                               setState(() {
+                                 dept="false";
+                                 feat="true";
+                               });
+                                },
+                              ),
                             ),
                           ),
 
