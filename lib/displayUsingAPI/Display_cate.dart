@@ -32,7 +32,7 @@ class _CheckImageState extends State<CheckImage> {
       child: SizedBox(
         height: 220,
         child: GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 150,
+              maxCrossAxisExtent: 151,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
 
