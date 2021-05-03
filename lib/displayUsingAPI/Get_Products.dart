@@ -136,7 +136,8 @@ class _GetProductsState extends State<GetProducts> {
                                   ),
                                 ),
                               ),
-                            )
+                            ),
+                            Container(height: 10)
 
 
                           ],
@@ -147,7 +148,7 @@ class _GetProductsState extends State<GetProducts> {
                           child: Icon(
 
                             Icons.favorite,
-                            color: Colors.lightGreen,
+                            color: Color(0xFFBABABA),
 
                           ),
                         ),

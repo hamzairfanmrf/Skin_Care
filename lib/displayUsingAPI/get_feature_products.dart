@@ -118,6 +118,9 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                           ),
                         ),
                       ),
+                    ),
+                    Container(
+                      height: 20,
                     )
 
 
@@ -129,7 +132,7 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                   child: Icon(
 
                     Icons.favorite,
-                    color: Color(0xFFF1F3F4),
+                    color: Color(0xFFBABABA),
 
 
                   ),
@@ -233,6 +236,9 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                           ),
                         ),
                       ),
+                    ),
+                    Container(
+                      height: 20,
                     )
 
 
@@ -244,7 +250,7 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                   child: Icon(
 
                     Icons.favorite,
-                  color: Color(0xFFF1F3F4),
+                  color: Color(0xFFBABABA),
 
                   ),
                 ),
