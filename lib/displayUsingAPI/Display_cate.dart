@@ -30,7 +30,7 @@ class _CheckImageState extends State<CheckImage> {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: SizedBox(
-        height: 220,
+        height: 300,
         child: GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 150,
               crossAxisSpacing: 10,
@@ -102,12 +102,13 @@ class _CheckImageState extends State<CheckImage> {
                 ),
                 onTap: (){
                   var a=myCatgories[index].c_id;
+
                   print(a);
                   setState(() {
 
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => GetProducts(a)),
+                      MaterialPageRoute(builder: (context) => GetProducts(a,myCatgories[index].c_name)),
                     );
                   });
                 },

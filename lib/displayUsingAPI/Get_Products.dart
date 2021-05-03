@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:skin_care/Model/Products.dart';
+import 'package:skin_care/Products_all/products_detail.dart';
 import '../API/api.dart';
 
 String aaa;
+String nam;
 class GetProducts extends StatefulWidget {
 
-  GetProducts(String s){
+  GetProducts(String s,String name){
     print("in constructor the value is $s");
    aaa=s;
+   nam=name;
   }
 
 
@@ -35,6 +38,16 @@ class _GetProductsState extends State<GetProducts> {
   Widget build(BuildContext context) {
     getProducts();
     return  Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFF1F3F4),
+        title: Text(
+          '$nam',
+          style: TextStyle(
+            color: Colors.green
+          ),
+        ),
+        centerTitle: true
+      ),
       body: SizedBox(
         height: 10000,
         child: GridView.builder(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -141,6 +154,15 @@ class _GetProductsState extends State<GetProducts> {
 
                   ),
                 ),
+                onTap: (){
+                  setState(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Detail(p[index].name,p[index].image,p[index].description)),
+                    );
+
+                  });
+                },
               );
 
             }

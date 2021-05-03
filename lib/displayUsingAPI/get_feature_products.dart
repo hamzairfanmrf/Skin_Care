@@ -6,7 +6,7 @@ import 'package:skeleton_text/skeleton_text.dart';
 import 'package:skin_care/Model/Feature_products.dart';
 import 'package:skin_care/API/api.dart';
 import 'package:ribbon/ribbon.dart';
-import '../Products_all/check_products.dart';
+
 
 
 class GetFeatureProduct extends StatefulWidget {

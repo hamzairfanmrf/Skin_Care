@@ -22,6 +22,9 @@ const op=0.2;
 var active_color1=Colors.black45;
 var active_color2=Colors.black45;
 
+var colorDepartment=Colors.green;
+var colorFeature=Colors.black;
+
 
 
 
@@ -153,49 +156,91 @@ class _just_checkState extends State<just_check> {
 
                         children: [
 
-                          Expanded(
-                            child: Padding(
 
-                              padding: const EdgeInsets.all(8),
-                              child: GestureDetector(
+                          Column(
+                            children: [
+                              SizedBox(
+                                height: 100,
+
+                                child: Container(
+                                  margin: EdgeInsets.only(left: 70),
+                                  child: Padding(
+
+                                    padding: const EdgeInsets.all(8),
+                                    child: GestureDetector(
 
 
 
-                                child:CircleAvatar(
-                                  radius: 40,
-                                  backgroundImage: AssetImage('images/departments.jpg'),
+                                      child:CircleAvatar(
+                                        radius: 40,
+                                        backgroundImage: AssetImage('images/departments.jpg'),
+                                      ),
+                                      onTap: (){
+                                        setState(() {
+                                          dept="true";
+                                          feat="false";
+                                          colorDepartment=Colors.green;
+                                          colorFeature=Colors.black;
+                                        });
+
+                                      },
+
+                                    ),
+                                  ),
                                 ),
-                                onTap: (){
-                                  setState(() {
-                                    dept="true";
-                                    feat="false";
-                                  });
-
-                                },
-
                               ),
-                            ),
+                              Container(
+                                margin: EdgeInsets.only(left: 60),
+                                child: Text('Departments',
+                                style: TextStyle(
+                                  color: colorDepartment,
+                                  fontSize: 13
+
+                                ),
+
+                                ),
+                              )
+                            ],
                           ),
                           SizedBox(
                             width: 20,
                           ),
 
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: GestureDetector(child:
+                          Column(
+                            children: [
+                              SizedBox(
+                                height: 100,
+                                child: Container(
+                                  margin: EdgeInsets.only(left: 40),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8),
+                                    child: GestureDetector(child:
                          CircleAvatar(
-                               radius: 40,
-                               backgroundImage: AssetImage('images/featured_products.jpg'),
+                                     radius: 40,
+                                     backgroundImage: AssetImage('images/featured_products.jpg'),
                          ),
-                                onTap: (){
-                               setState(() {
-                                 dept="false";
-                                 feat="true";
-                               });
-                                },
+                                      onTap: (){
+                                     setState(() {
+                                       dept="false";
+                                       feat="true";
+                                       colorDepartment=Colors.black;
+                                       colorFeature=Colors.green;
+                                     });
+                                      },
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
+                              Container(
+                                margin: EdgeInsets.only(left: 40),
+                                child: Text(
+                                  'Feature Products',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
 
                         ],
