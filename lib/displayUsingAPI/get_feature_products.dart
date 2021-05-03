@@ -6,6 +6,8 @@ import 'package:skeleton_text/skeleton_text.dart';
 import 'package:skin_care/Model/Feature_products.dart';
 import 'package:skin_care/API/api.dart';
 import 'package:ribbon/ribbon.dart';
+import 'package:skin_care/Products_all/featureProductDetail.dart';
+import 'package:skin_care/Products_all/featureProductsWithoutRibbon.dart';
 
 
 
@@ -90,18 +92,22 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                       height: 2,
                     ),
 
-                    Text(
-                      '${feature[index].c_name}',
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontFamily: 'Source Sans Pro',
-                          fontWeight: FontWeight.bold
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30),
+                      child: Text(
+                        '${feature[index].c_name}',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontFamily: 'Source Sans Pro',
+                            fontWeight: FontWeight.bold
+                        ),
                       ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     Container(
+                      margin: EdgeInsets.only(left: 25),
                       color: Color(0xFF7FAD39),
                       height: 30,
                       child: ElevatedButton(
@@ -123,7 +129,8 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                   child: Icon(
 
                     Icons.favorite,
-                    color: Colors.lightGreen,
+                    color: Color(0xFFF1F3F4),
+
 
                   ),
                 ),
@@ -136,6 +143,15 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
 
           ),
         ),
+        onTap: (){
+          setState(() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>  DetailFeature(feature[index].c_name,feature[index].description,feature[index].ic)),
+            );
+
+          });
+        },
       );
 
     }
@@ -191,18 +207,22 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                       height: 2,
                     ),
 
-                    Text(
-                      '${feature[index].c_name}',
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontFamily: 'Source Sans Pro',
-                          fontWeight: FontWeight.bold
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30),
+                      child: Text(
+                        '${feature[index].c_name}',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontFamily: 'Source Sans Pro',
+                            fontWeight: FontWeight.bold
+                        ),
                       ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     Container(
+                      margin: EdgeInsets.only(left: 25),
                       color: Color(0xFF7FAD39),
                       height: 30,
                       child: ElevatedButton(
@@ -224,7 +244,7 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                   child: Icon(
 
                     Icons.favorite,
-                    color: Colors.lightGreen,
+                  color: Color(0xFFF1F3F4),
 
                   ),
                 ),
@@ -237,6 +257,16 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
 
           ) ,
         ),
+        onTap: (){
+          setState(() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>  FeatureProductRibbonLess(feature[index].c_name,feature[index].description,feature[index].ic)),
+            );
+
+
+          });
+        },
       );
     }
   }

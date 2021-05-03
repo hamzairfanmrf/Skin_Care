@@ -1,43 +1,26 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ribbon/ribbon.dart';
 import 'package:skin_care/API/api.dart';
-import 'package:skin_care/Model/Products.dart';
-import 'package:skin_care/displayUsingAPI/Get_Products.dart';
 import 'package:skin_care/displayUsingAPI/below_buttons.dart';
-import 'package:skin_care/sizeConfig/size_config.dart';
+import 'package:skin_care/displayUsingAPI/get_feature_products.dart';
 String nam;
 String img;
 String desc;
 
-class Detail extends StatefulWidget {
-  Detail(String name,String image,String description){
-
-  img=image;
-  desc=description;
-  nam=name;
+class DetailFeature extends StatefulWidget {
+  DetailFeature(String name,String description,String image){
+    img=image;
+    desc=description;
+    nam=name;
   }
-
   @override
-  _DetailState createState() => _DetailState();
+  _DetailFeatureState createState() => _DetailFeatureState();
 }
 
-class _DetailState extends State<Detail> {
-
-
+class _DetailFeatureState extends State<DetailFeature> {
   APi products=APi.instance;
-
-
-
-  void getProduct ()async{
-
-    setState(() {
-
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Color(0xFFDEDEDE),
       appBar: CustomAppBar(
@@ -48,12 +31,23 @@ class _DetailState extends State<Detail> {
           SizedBox(
             width: 300,
 
-            child: Container(
+            child: Ribbon(
+              nearLength: 60,
+              farLength: 90,
+              title: 'New!',
+              titleStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+              color:  Color(0xFF7FAD39),
+              location: RibbonLocation.topStart,
+              child: Container(
 
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: Image(
-                  image: NetworkImage(products.baseURLProducts+img),
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Image(
+                    image: NetworkImage(products.baseURLfeatureProducts+img),
+                  ),
                 ),
               ),
             ),
@@ -68,10 +62,10 @@ class _DetailState extends State<Detail> {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50),
+              color: Colors.white,
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50),
 
-                ),
+              ),
 
             ),
 
@@ -86,7 +80,7 @@ class _DetailState extends State<Detail> {
                     style: TextStyle(
 
                         fontSize: 30,
-                    color: Colors.black),
+                        color: Colors.black),
 
 
                   ),
@@ -95,12 +89,12 @@ class _DetailState extends State<Detail> {
                 Padding(padding: EdgeInsets.only(left: 30,right: 60),
                   child: Text(
                     "$desc",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontFamily: 'Source Sans Pro',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontFamily: 'Source Sans Pro',
 
-                  ),
+                    ),
                   ),
                 ),
                 Row(
@@ -215,25 +209,25 @@ class CustomAppBar extends PreferredSize{
 
 
             child: Icon(
-                Icons.arrow_back_ios_outlined,
+              Icons.arrow_back_ios_outlined,
               color: Colors.white,
             ),
             style: ButtonStyle(
 
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(60.0),
-                    side: BorderSide(color: Colors.white)
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(60.0),
+                      side: BorderSide(color: Colors.white)
+                  ),
                 ),
-              ),
-              backgroundColor: MaterialStateProperty.all<Color>(
-                  Color(0xFF7FAD39)
-              )
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Color(0xFF7FAD39)
+                )
             ),
             onPressed: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
+                MaterialPageRoute(builder: (context) =>  MyHomePage()),
               );
 
             },

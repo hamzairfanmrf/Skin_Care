@@ -22,8 +22,8 @@ const op=0.2;
 var active_color1=Colors.black45;
 var active_color2=Colors.black45;
 
-var colorDepartment=Colors.green;
-var colorFeature=Colors.black;
+var colorDepartment=Color(0xFF7FAD39);
+var colorFeature=Color(0xFF000000);
 
 
 
@@ -160,10 +160,10 @@ class _just_checkState extends State<just_check> {
                           Column(
                             children: [
                               SizedBox(
-                                height: 100,
+                                height: 70,
 
                                 child: Container(
-                                  margin: EdgeInsets.only(left: 70),
+                                  margin: EdgeInsets.only(left: 80),
                                   child: Padding(
 
                                     padding: const EdgeInsets.all(8),
@@ -171,16 +171,17 @@ class _just_checkState extends State<just_check> {
 
 
 
-                                      child:CircleAvatar(
-                                        radius: 40,
-                                        backgroundImage: AssetImage('images/departments.jpg'),
+                                      child:Icon(
+                                        Icons.business,
+                                        size: 50,
+                                        color: colorDepartment,
                                       ),
                                       onTap: (){
                                         setState(() {
                                           dept="true";
                                           feat="false";
-                                          colorDepartment=Colors.green;
-                                          colorFeature=Colors.black;
+                                          colorFeature=Color(0xFF000000);
+                                          colorDepartment=Color(0xFF7FAD39);
                                         });
 
                                       },
@@ -190,7 +191,7 @@ class _just_checkState extends State<just_check> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(left: 60),
+                                margin: EdgeInsets.only(left: 70),
                                 child: Text('Departments',
                                 style: TextStyle(
                                   color: colorDepartment,
@@ -209,22 +210,23 @@ class _just_checkState extends State<just_check> {
                           Column(
                             children: [
                               SizedBox(
-                                height: 100,
+                                height: 70,
                                 child: Container(
-                                  margin: EdgeInsets.only(left: 40),
+                                  margin: EdgeInsets.only(left: 70),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8),
                                     child: GestureDetector(child:
-                         CircleAvatar(
-                                     radius: 40,
-                                     backgroundImage: AssetImage('images/featured_products.jpg'),
-                         ),
+                        Icon(
+                          Icons.post_add_rounded,
+                          size: 50,
+                          color:colorFeature
+                        ),
                                       onTap: (){
                                      setState(() {
                                        dept="false";
                                        feat="true";
-                                       colorDepartment=Colors.black;
-                                       colorFeature=Colors.green;
+                                       colorDepartment=Color(0xFF000000);
+                                       colorFeature=Color(0xFF7FAD39);
                                      });
                                       },
                                     ),
@@ -232,11 +234,12 @@ class _just_checkState extends State<just_check> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.only(left: 40),
+                                margin: EdgeInsets.only(left: 70),
                                 child: Text(
                                   'Feature Products',
                                   style: TextStyle(
                                     fontSize: 12,
+                                    color: colorFeature,
                                   ),
                                 ),
                               )

@@ -107,18 +107,23 @@ class _GetProductsState extends State<GetProducts> {
                               height: 10,
                             ),
 
-                            Text(
-                              '${p[index].name}',
-                              style: TextStyle(
-                                  fontSize: 10,
-                                  fontFamily: 'Source Sans Pro',
-                                  fontWeight: FontWeight.bold
+                            Padding(
+                              padding: const EdgeInsets.only(left: 30),
+                              child: Text(
+                                '${p[index].name}',
+                                style: TextStyle(
+                                    fontSize: 10,
+                                    fontFamily: 'Source Sans Pro',
+                                    fontWeight: FontWeight.bold
+                                ),
+
                               ),
                             ),
                             SizedBox(
                               height: 20,
                             ),
                             Container(
+                              margin: EdgeInsets.only(left: 30),
                               color: Color(0xFF7FAD39),
                               height: 30,
                               child: ElevatedButton(
