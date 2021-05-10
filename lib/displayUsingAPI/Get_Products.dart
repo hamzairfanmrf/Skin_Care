@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:skin_care/Database/database.dart';
+import 'package:skin_care/Model/Cart.dart';
 import 'package:skin_care/Model/Products.dart';
+import 'package:skin_care/Products_all/DisplayCart.dart';
 import 'package:skin_care/Products_all/products_detail.dart';
 import '../API/api.dart';
 
 String aaa;
 String nam;
+String prodQuantity;
+double total=0;
+int i=1;
+
+
 class GetProducts extends StatefulWidget {
 
   GetProducts(String s,String name){
@@ -27,15 +35,23 @@ class _GetProductsState extends State<GetProducts> {
   int category_Id=int.parse(aaa);
   void getProducts() async {
     var a=await products.Products(context,category_Id);
-    print(a);
+
     setState(() {
       p=products.product;
     });
 
   }
+Future<int> checkProdID(String prodId) async{
+    var z=await DBProvider.db.checkProductId(prodId);
+
+    //print(z);
+    return z;
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    total=0;
     getProducts();
     return  Scaffold(
       appBar: AppBar(
@@ -127,6 +143,10 @@ class _GetProductsState extends State<GetProducts> {
                               color: Color(0xFF7FAD39),
                               height: 30,
                               child: ElevatedButton(
+                                style: TextButton.styleFrom(
+                                  primary: Color(0xFF7FAD39),
+                                  backgroundColor: Color(0xFF7FAD39),
+                                ),
                                 child: Text(
                                   'Add to cart',
                                   style: TextStyle(
@@ -135,6 +155,26 @@ class _GetProductsState extends State<GetProducts> {
                                     fontFamily: 'Source Sans Pro'
                                   ),
                                 ),
+                                onPressed: () async {
+                                 var z= await checkProdID(p[index].id);
+                                // var q= DBProvider.db.checkProductId(p[index].id);
+                                 print("quantity of cart is $z");
+                                 var qua=z.toString();
+
+                                 var price=p[index].price;
+
+
+
+
+
+
+
+                                  Cart a=Cart(name: p[index].name,image: p[index].image,quantity: qua,product_id:p[index].id,price: price,c_Id: p[index].c_id,description: p[index].description );
+                                  ++i;
+
+                                  DBProvider.db.insertProduct(a);
+
+                                },
                               ),
                             ),
                             Container(height: 10)

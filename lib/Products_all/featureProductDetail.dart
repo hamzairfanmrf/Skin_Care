@@ -156,24 +156,26 @@ class _DetailFeatureState extends State<DetailFeature> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 60,
+                  child: Expanded(
+                    child: Container(
+                      height: 60,
 
-                    width: 200,
-                    decoration: BoxDecoration(
-                      color:  Color(0xFF7FAD39),
-                      borderRadius: BorderRadius.circular(80),
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color:  Color(0xFF7FAD39),
+                        borderRadius: BorderRadius.circular(80),
 
-                    ),
+                      ),
 
-                    child: TextButton(
-                      child: Text(
-                        'ADD to CART',
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.white
+                      child: TextButton(
+                        child: Text(
+                          'ADD to CART',
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white
+                          ),
+
                         ),
-
                       ),
                     ),
                   ),

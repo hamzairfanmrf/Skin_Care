@@ -5,12 +5,15 @@ import 'package:skin_care/API/api.dart';
 import 'package:skin_care/displayUsingAPI/get_feature_products.dart';
 
 import 'package:skin_care/displayUsingAPI/Display_cate.dart';
+import 'Products_all/DisplayCart.dart';
 import 'sizeConfig/size_config.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'Slider/Crouser.dart';
 import 'splash_screen.dart';
 import 'displayUsingAPI/below_buttons.dart';
 import 'Model/categories.dart';
+
+import 'package:sizer/sizer.dart';
 
 import 'package:skin_care/displayUsingAPI/Display_cate.dart';
 
@@ -72,204 +75,214 @@ class _just_checkState extends State<just_check> {
     }
 
     SizeConfig().init(context);
-    return Scaffold(
-      backgroundColor: Color(0xFFFBFBFB),
-      body: SizedBox(
-        height: 200000,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-              children: [
-
-                SizedBox(height: getProportionateScreenWidth(10),
-                ),
-                SafeArea(
-                  child: Container(
-
-                    child: Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(width: SizeConfig.screenWidth * 0.6,
-                            margin: EdgeInsets.only(top: 5),
-                            //height: 50,
-
-                            decoration: BoxDecoration(
-                                color: Color(0xFFBABABA).withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(15)
-                            ),
-                            child: TextField(
-                              onChanged: (value){
-
-                              },
-
-                              decoration: InputDecoration(
-                                enabledBorder: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                hintText: 'Search product',
-
-                                prefixIcon:Icon( Icons.search
-                                ),
-                                contentPadding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20),vertical: getProportionateScreenWidth(9)),
-
-
-
-                              ),
-                              textAlign: TextAlign.left,
-                              textAlignVertical: TextAlignVertical.center,
-                            ),
-                          ),
-                          IconButtonwithCounter(
-                            svgsrc: Icons.shopping_cart,
-
-                            press: (){
-
-                            },
-                          ),
-                          IconButtonwithCounter(
-                            svgsrc: Icons.add_alert_rounded,
-                            no_of_items: 3,
-                            press: (){
-
-                            },
-                          ),
-
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  child:CarouselWithIndicatorDemo(),
-                ),
-
-                Container(
-
-                  child: Column(
+    return Sizer(
+        builder: (context, orientation, deviceType) {
+          return Scaffold(
+            backgroundColor: Color(0xFFFBFBFB),
+            body: SizedBox(
+              height: 200000,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
                     children: [
-                      Row(
 
-
-                        children: [
-
-
-                          Column(
-                            children: [
-                              SizedBox(
-                                height: 70,
-
-                                child: Container(
-                                  margin: EdgeInsets.only(left: 80),
-                                  child: Padding(
-
-                                    padding: const EdgeInsets.all(8),
-                                    child: GestureDetector(
-
-
-
-                                      child:Icon(
-                                        Icons.business,
-                                        size: 50,
-                                        color: colorDepartment,
-                                      ),
-                                      onTap: (){
-                                        setState(() {
-                                          dept="true";
-                                          feat="false";
-                                          colorFeature=Color(0xFF000000);
-                                          colorDepartment=Color(0xFF7FAD39);
-                                        });
-
-                                      },
-
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 70),
-                                child: Text('Departments',
-                                style: TextStyle(
-                                  color: colorDepartment,
-                                  fontSize: 13
-
-                                ),
-
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-
-                          Column(
-                            children: [
-                              SizedBox(
-                                height: 70,
-                                child: Container(
-                                  margin: EdgeInsets.only(left: 70),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8),
-                                    child: GestureDetector(child:
-                        Icon(
-                          Icons.post_add_rounded,
-                          size: 50,
-                          color:colorFeature
-                        ),
-                                      onTap: (){
-                                     setState(() {
-                                       dept="false";
-                                       feat="true";
-                                       colorDepartment=Color(0xFF000000);
-                                       colorFeature=Color(0xFF7FAD39);
-                                     });
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 70),
-                                child: Text(
-                                  'Feature Products',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: colorFeature,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-
-                        ],
+                      SizedBox(height: getProportionateScreenWidth(10),
                       ),
-                     SizedBox(height: 1000,
-                       child: Container(
-                          child: decide(),
+                      SafeArea(
+                        child: Container(
+
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(width: SizeConfig.screenWidth * 0.6,
+                                  margin: EdgeInsets.only(top: 5),
+                                  //height: 50,
+
+                                  decoration: BoxDecoration(
+                                      color: Color(0xFFBABABA).withOpacity(0.2),
+                                      borderRadius: BorderRadius.circular(15)
+                                  ),
+                                  child: TextField(
+                                    onChanged: (value) {
+
+                                    },
+
+                                    decoration: InputDecoration(
+                                      enabledBorder: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      hintText: 'Search product',
+
+                                      prefixIcon: Icon(Icons.search
+                                      ),
+                                      contentPadding: EdgeInsets.symmetric(
+                                          horizontal: getProportionateScreenWidth(
+                                              20),
+                                          vertical: getProportionateScreenWidth(
+                                              9)),
+
+
+                                    ),
+                                    textAlign: TextAlign.left,
+                                    textAlignVertical: TextAlignVertical.center,
+                                  ),
+                                ),
+                                IconButtonwithCounter(
+                                  svgsrc: Icons.shopping_cart,
+
+                                  press: () {
+                                    setState(() {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => DisplayCart()),
+                                      );
+                                    });
+
+                                  },
+                                ),
+                                IconButtonwithCounter(
+                                  svgsrc: Icons.add_alert_rounded,
+                                  no_of_items: 3,
+                                  press: () {
+
+                                  },
+                                ),
+
+                              ],
+                            ),
+                          ),
                         ),
-                     ),
-                    ],
-                  ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        child: CarouselWithIndicatorDemo(),
+                      ),
+
+                      Container(
+
+                        child: Column(
+                          children: [
+                            Row(
+
+
+                              children: [
+
+
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 70,
+
+                                      child: Container(
+                                        margin: EdgeInsets.only(left: 80),
+                                        child: Padding(
+
+                                          padding: const EdgeInsets.all(8),
+                                          child: GestureDetector(
+
+
+                                            child: Icon(
+                                              Icons.business,
+                                              size: 50,
+                                              color: colorDepartment,
+                                            ),
+                                            onTap: () {
+                                              setState(() {
+                                                dept = "true";
+                                                feat = "false";
+                                                colorFeature =
+                                                    Color(0xFF000000);
+                                                colorDepartment =
+                                                    Color(0xFF7FAD39);
+                                              });
+                                            },
+
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(left: 70),
+                                      child: Text('Departments',
+                                        style: TextStyle(
+                                            color: colorDepartment,
+                                            fontSize: 13
+
+                                        ),
+
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 70,
+                                      child: Container(
+                                        margin: EdgeInsets.only(left: 70),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8),
+                                          child: GestureDetector(child:
+                                          Icon(
+                                              Icons.post_add_rounded,
+                                              size: 50,
+                                              color: colorFeature
+                                          ),
+                                            onTap: () {
+                                              setState(() {
+                                                dept = "false";
+                                                feat = "true";
+                                                colorDepartment =
+                                                    Color(0xFF000000);
+                                                colorFeature =
+                                                    Color(0xFF7FAD39);
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(left: 70),
+                                      child: Text(
+                                        'Feature Products',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: colorFeature,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            SizedBox(height: 1000,
+                              child: Container(
+                                child: decide(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+
+                    ]
                 ),
+              ),
+            ),
 
 
+          );
 
-
-              ]
-          ),
-        ),
-      ),
-
-
-
-
-
-
+        }
     );
 
 

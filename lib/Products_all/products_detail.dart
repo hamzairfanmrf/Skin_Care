@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:skin_care/API/api.dart';
+import 'package:skin_care/Database/database.dart';
+import 'package:skin_care/Model/Cart.dart';
+import 'package:skin_care/Model/Check_database.dart';
 import 'package:skin_care/Model/Products.dart';
 import 'package:skin_care/displayUsingAPI/Get_Products.dart';
 import 'package:skin_care/displayUsingAPI/below_buttons.dart';
@@ -8,6 +11,7 @@ import 'package:skin_care/sizeConfig/size_config.dart';
 String nam;
 String img;
 String desc;
+
 
 class Detail extends StatefulWidget {
   Detail(String name,String image,String description){
@@ -181,6 +185,18 @@ class _DetailState extends State<Detail> {
                         ),
 
                       ),
+                      onPressed: (){
+                        setState(() {
+                          Cart a=Cart(name: nam,description: desc,image: img);
+                          DBProvider.db.insertProduct(a);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => CheckDb()),
+                          );
+                        });
+
+
+                      },
                     ),
                   ),
                 )

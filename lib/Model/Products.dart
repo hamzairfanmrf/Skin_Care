@@ -9,8 +9,9 @@ class Product{
   String description_ar;
   String offer;
   String oldprice;
+  String price;
   String image;
-  Product({this.id,this.c_id,this.name,this.ar_name,this.description,this.description_ar,this.offer,this.oldprice,this.image});
+  Product({this.id,this.c_id,this.name,this.ar_name,this.description,this.description_ar,this.offer,this.oldprice,this.image,this.price});
 
   factory Product.fromJson(Map<String, dynamic> json){
     return Product(
@@ -28,6 +29,8 @@ class Product{
       // price: json['price'] as int,
       //priority: json['priority'] as int,
       offer: json['offer'] as String,
+      oldprice: json['old_price'] as String,
+      price: json['price'] as String
 
 
 
@@ -54,6 +57,8 @@ class Product{
       'description': description,
       'description_ar':description_ar,
       'offer':offer,
+      'old_price':oldprice,
+      'price':price,
 
 
     };

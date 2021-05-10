@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Model/Check_database.dart';
+import 'Products_all/DisplayCart.dart';
 import 'Products_all/products_detail.dart';
 import 'displayUsingAPI/Get_Products.dart';
 import 'package:skin_care/displayUsingAPI/Display_cate.dart';
@@ -38,7 +40,7 @@ void main() {
 
     debugShowCheckedModeBanner: false,
 
-home:SplashScreen(
+home:MyHomePage(
 
 ),
   ),
