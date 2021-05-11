@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skin_care/Database/database.dart';
+import 'package:skin_care/Model/CART2.dart';
 import 'package:skin_care/Model/Cart.dart';
+import 'package:skin_care/Model/Check_database.dart';
 import 'package:skin_care/Model/Products.dart';
 import 'package:skin_care/Products_all/DisplayCart.dart';
 import 'package:skin_care/Products_all/products_detail.dart';
@@ -169,10 +171,23 @@ Future<int> checkProdID(String prodId) async{
 
 
 
-                                  Cart a=Cart(name: p[index].name,image: p[index].image,quantity: qua,product_id:p[index].id,price: price,c_Id: p[index].c_id,description: p[index].description );
-                                  ++i;
 
-                                  DBProvider.db.insertProduct(a);
+                                  // Cart a=Cart(name: p[index].name,image: p[index].image,quantity: qua,product_id:p[index].id,price: price,c_Id: p[index].c_id,description: p[index].description );
+                                  // ++i;
+
+                                  // DBProvider.db.insertProduct(a);
+                                  var countOfCart2=await CheckDB.checkDB.checkCount(p[index].id);
+                                  print("count of quantity for CART2 is $countOfCart2");
+                                  if(countOfCart2 == 1){
+
+                                    Cart2 cart2=Cart2(name: p[index].name,image: p[index].image,quantity: countOfCart2,product_id:p[index].id,price: price,c_Id: p[index].c_id,description: p[index].description );
+                                    CheckDB.checkDB.insertProduct(cart2);
+                                    CheckDB.checkDB.updateTotal(p[index].id, p[index].price);
+                                  }
+                                  if(countOfCart2 > 1){
+                                   var increaseQuat= await CheckDB.checkDB.increaseQuantity(p[index].id);
+                                   CheckDB.checkDB.updateTotal(p[index].id, p[index].price);
+                                  }
 
                                 },
                               ),

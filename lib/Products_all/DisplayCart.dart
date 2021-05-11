@@ -79,9 +79,9 @@ setState(() {
     //deleteAll();
 
      getCartItems();
-    // // deleteAll();
-    totalProd();
-    CheckAuto();
+    // // // deleteAll();
+     totalProd();
+    // CheckAuto();
 
 
 
@@ -141,8 +141,10 @@ setState(() {
                           width: getProportionateScreenWidth(110),
                         ),
 
-                        SizedBox(height: 12,),
-                        Container(child: Text("${c[index].price}",
+                        SizedBox(height: 5),
+                        Container(
+                          margin: EdgeInsets.only(right: 30),
+                          child: Text("${c[index].price} AED",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12
@@ -199,7 +201,7 @@ setState(() {
         }
     ),
         bottomNavigationBar: Container(
-        height: 174,
+        height: 200,
          decoration: BoxDecoration(
            borderRadius: BorderRadius.only(topLeft: Radius.circular(30),
            topRight: Radius.circular(30),
@@ -213,66 +215,130 @@ setState(() {
         ),
           child: Column(
             children: [
-              Row(
-                children: [
-                Container(
+              // Row(
+              //   children: [
+              //
+              //     Container(
+              //       margin: EdgeInsets.fromLTRB(40, 20, 0, 0),
+              //       width: getProportionateScreenWidth(180),
+              //       height: getProportionateScreenWidth(60),
+              //       child: Image(
+              //         image: AssetImage('images/skin_food.jpeg'),
+              //       ),
+              //     )
+              //
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
 
-                  margin: EdgeInsets.fromLTRB(40, 20, 0, 0),
-                  height: getProportionateScreenWidth(40),
-                  width: getProportionateScreenWidth(60),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-
-                  ),
-
-                  child:Image(
-                    image:AssetImage('images/atm.jpg'),
-                  ),
-                ),
                   Container(
-                    margin: EdgeInsets.fromLTRB(40, 20, 0, 0),
-                    width: getProportionateScreenWidth(180),
-                    height: getProportionateScreenWidth(60),
-                    child: Image(
-                      image: AssetImage('images/skin_food.jpeg'),
+                    child: Text(
+                      "SUB-TOTAL",
                     ),
-                  )
 
-                ],
+                  ),
+                    Container(
+                      child: Text(
+                        "$totalOfProduct AED",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  Container(
-                    margin: EdgeInsets.fromLTRB(30, 15, 0, 0),
-                    child: Column(
-                      children: [
-                        Text("TOTAL : ",
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    Container(
+                      child: Text(
+                        "TAX",
                         style: TextStyle(
 
-                        fontSize: 12,
                         ),
+                      ),
+
+                    ),
+                    Container(
+                      child: Text(
+                        "0 AED",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
-
-                        Text("$totalOfProduct AED",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                          ),
-                        ),
-
-
-                      ],
-
+                      ),
                     )
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(80,15,0,0),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    Container(
+                      child: Text(
+                        "DELIVERY",
+                      ),
+
+                    ),
+                    Container(
+                      child: Text(
+                        "FREE",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    Container(
+
+
+                      child: Text(
+                        "TOTAL",
+                      ),
+                      margin: EdgeInsets.only(left: 10),
+
+                    ),
+                    Container(
+                      child: Text(
+                        "$totalOfProduct AED",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Row(
+                children: [
+
+                  Expanded(
                     child: SizedBox(
                       width: getProportionateScreenWidth(190),
                       child: TextButton(

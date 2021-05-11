@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:skin_care/Model/Check_database.dart';
 import 'package:skin_care/Model/Feature_products.dart';
 import 'package:skin_care/API/api.dart';
 import 'package:skin_care/displayUsingAPI/get_feature_products.dart';
 
 import 'package:skin_care/displayUsingAPI/Display_cate.dart';
+import 'Model/DisplayCart2.dart';
 import 'Products_all/DisplayCart.dart';
 import 'sizeConfig/size_config.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -135,7 +137,7 @@ class _just_checkState extends State<just_check> {
                                     setState(() {
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) => DisplayCart()),
+                                        MaterialPageRoute(builder: (context) => DisplayCart2() ),
                                       );
                                     });
 

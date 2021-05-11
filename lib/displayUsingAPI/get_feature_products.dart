@@ -117,6 +117,7 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
                             color: Colors.white,
                           ),
                         ),
+                        
                       ),
                     ),
                     Container(
@@ -282,9 +283,6 @@ class _GetFeatureProductState extends State<GetFeatureProduct> {
     getFeatureProducts();
 
     return Scaffold(
-
-
-
 
         body:SingleChildScrollView(
           scrollDirection: Axis.vertical,

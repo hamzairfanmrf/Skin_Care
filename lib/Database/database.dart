@@ -79,7 +79,7 @@ class DBProvider {
         product_id: maps[i]['product_id'],
         price: maps[i]['price'],
         quantity: maps[i]['quantity'],
-        total: maps[i]['total'],
+        //total: double.parse(maps[i]['total']),
         status: maps[i]['status'],
         c_Id: maps[i]['c_Id'],
         description: maps[i]['description'],

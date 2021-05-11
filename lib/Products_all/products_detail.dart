@@ -187,12 +187,8 @@ class _DetailState extends State<Detail> {
                       ),
                       onPressed: (){
                         setState(() {
-                          Cart a=Cart(name: nam,description: desc,image: img);
-                          DBProvider.db.insertProduct(a);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => CheckDb()),
-                          );
+
+
                         });
 
 
